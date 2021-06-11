@@ -24,7 +24,6 @@ See the following for detailed instructions for
   * [Amazon S3](/s3/)
   * [Backblaze B2](/b2/)
   * [Box](/box/)
-  * [Cache](/cache/)
   * [Chunker](/chunker/) - transparently splits large files for other remotes
   * [Citrix ShareFile](/sharefile/)
   * [Compress](/compress/)
@@ -163,7 +162,7 @@ The syntax of the paths passed to the rclone command are as follows.
 This refers to the local file system.
 
 On Windows `\` may be used instead of `/` in local paths **only**,
-non local paths must use `/`. See [local filesystem](https://rclone.org/local/#windows-paths)
+non local paths must use `/`. See [local filesystem](https://rclone.org/local/#paths-on-windows)
 documentation for more about Windows-specific paths.
 
 These paths needn't start with a leading `/` - if they don't then they
@@ -786,6 +785,8 @@ For example, if you configured QoS on router to handle LE properly. Running:
 rclone copy --dscp LE from:/from to:/to
 ```
 would make the priority lower than usual internet flows.
+
+This option has no effect on Windows (see [golang/go#42728](https://github.com/golang/go/issues/42728)).
 
 ### -n, --dry-run ###
 
